@@ -4,6 +4,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Linter
-        run: | 
-          make lint
+      name: Run Linter
+        run: make lint
