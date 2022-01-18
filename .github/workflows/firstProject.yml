@@ -1,0 +1,8 @@
+name: firstProject
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run linter
+        run: make lint
