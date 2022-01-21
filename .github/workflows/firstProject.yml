@@ -1,20 +1,24 @@
-name: firstProject
-on: push
+name: firstProjectCheck
+
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 15.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+
+      - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "16"
+
       - name: Install dependencies
-        run: |
-          make install
+        run: make install
+
       - name: Run Linter
-        run: |
-          make lint
+        run: make lint
