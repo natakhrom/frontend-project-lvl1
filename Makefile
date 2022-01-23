@@ -7,7 +7,7 @@ brain-games:
 brain-even:
 	node bin/games/brain-even.js
 
-brain-even:
+brain-calc:
 	node bin/games/brain-calc.js
 
 publish:
