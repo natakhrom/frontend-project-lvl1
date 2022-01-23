@@ -7,4 +7,7 @@
 
 
 ### Аскинема с примером установки пакета и игрой brain-even
-https://asciinema.org/~natalia-khromova
+https://asciinema.org/a/B4NxtQs1FH7mkC2mKhiVLPxc8
+
+### Аскинема с игрой brain-calc
+https://asciinema.org/a/xljuDnsM4YIcbS1tHRvKPQROS
