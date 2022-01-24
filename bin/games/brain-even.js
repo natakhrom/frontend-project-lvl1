@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 /* eslint-disable import/no-named-as-default-member */
 
 import { game, arrayQuestions, randomItem } from '../../src/index.js';

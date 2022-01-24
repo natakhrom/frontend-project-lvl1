@@ -19,6 +19,7 @@ for (let i = 0; i < arrElems.length; i += 1) {
 const answers = (array) => {
   const arr = [];
   let res;
+
   for (let i = 0; i < array.length; i += 1) {
     // преобразование элемента в массиве в массив
     const items = array[i].split(' ');
@@ -33,6 +34,7 @@ const answers = (array) => {
     }
     arr.push(String(res));
   }
+
   return arr;
 };
 

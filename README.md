@@ -11,3 +11,6 @@ https://asciinema.org/a/B4NxtQs1FH7mkC2mKhiVLPxc8
 
 ### Аскинема с игрой brain-calc
 https://asciinema.org/a/xljuDnsM4YIcbS1tHRvKPQROS
+
+### Аскинема с игрой brain-gcd
+https://asciinema.org/a/csbyk7oizYHHR8eVIc0crUOY0
