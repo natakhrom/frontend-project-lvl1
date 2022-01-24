@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 
+// игра
 function game(questions, answers, name) {
   for (let i = 0; i < questions.length; i += 1) {
     console.log(`Question: ${questions[i]}`);
@@ -24,12 +25,12 @@ function game(questions, answers, name) {
 // случайное число
 const randomItem = (n) => Math.floor(Math.random() * n);
 
-// массив вопросов
-const arrayQuestions = (length) => {
+// длина массива
+const arrayLength = (length) => {
   const array = [];
   array.length = length;
 
   return array;
 };
 
-export { game, arrayQuestions, randomItem };
+export { game, arrayLength, randomItem };

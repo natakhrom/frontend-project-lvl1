@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /* eslint-disable import/no-named-as-default-member */
 
-import { game, arrayQuestions, randomItem } from '../../src/index.js';
+import { game, arrayLength, randomItem } from '../../src/index.js';
 // eslint-disable-next-line import/no-named-as-default
 import userName from '../brain-games.js';
 
 const operators = ['+', '-', '*'];
 
 // массив математических примеров
-const arrElems = arrayQuestions(3);
+const arrElems = arrayLength(3);
 for (let i = 0; i < arrElems.length; i += 1) {
   const a = randomItem(100);
   const b = randomItem(100);

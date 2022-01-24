@@ -3,10 +3,10 @@
 
 // eslint-disable-next-line import/no-named-as-default
 import userName from '../brain-games.js';
-import { game, arrayQuestions, randomItem } from '../../src/index.js';
+import { game, arrayLength, randomItem } from '../../src/index.js';
 
 // массив вопросов
-const numbers = arrayQuestions(3);
+const numbers = arrayLength(3);
 for (let i = 0; i < numbers.length; i += 1) {
   const a = randomItem(100);
   const b = randomItem(100);
