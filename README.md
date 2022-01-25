@@ -1,3 +1,10 @@
+## Игры разума
+В проекте представлены 4 игры: 
+1. Проверка на чётность
+2. Калькулятор
+3. Наибольший общий делитель
+4. Арифметическая прогрессия
+5. Простое ли число?
 ###### Hexlet tests and linter status:
 [![Actions Status](https://github.com/natakhrom/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/natakhrom/frontend-project-lvl1/actions)
 ###### CodeClimate status:
