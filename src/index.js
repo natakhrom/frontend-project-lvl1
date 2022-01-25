@@ -25,12 +25,12 @@ function game(questions, answers, name) {
 // случайное число
 const randomItem = (n) => Math.floor(Math.random() * n);
 
-// длина массива
-const arrayLength = (length) => {
+// функция получения массива опредленной длины
+const getArrayOfSize = (length) => {
   const array = [];
   array.length = length;
 
   return array;
 };
 
-export { game, arrayLength, randomItem };
+export { game, getArrayOfSize, randomItem };
