@@ -24,10 +24,11 @@ function game(questions, answers, rules) {
 
       console.log(`Let's try again, ${userName}!`);
 
-      return false;
+      return;
     }
   }
-  return console.log(`Congratulations, ${userName}!`);
+
+  console.log(`Congratulations, ${userName}!`);
 }
 
 // случайное число
