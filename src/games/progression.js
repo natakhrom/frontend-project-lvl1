@@ -1,33 +1,37 @@
-import { getArrayOfSize, randomItem } from '../index.js';
+import { game, randomItem } from '../index.js';
 
-// скрытый элемент массива арифметической прогрессии
-let hiddenItem;
-// массив ответов, куда будем класть скрытые элементы
-const answers = [];
+const progressionGame = () => {
+  // скрытый элемент массива арифметической прогрессии
+  let hiddenItem;
+  // массив ответов, куда будем класть скрытые элементы
+  const answers = [];
 
-// массив арифметической прогрессии
-const arrNumPr = () => {
-  const arr = getArrayOfSize(10);
+  // массив арифметической прогрессии
+  const arrNumPr = () => {
+    const arr = [];
+    const arrLength = 10;
 
-  arr[0] = randomItem(20);
-  const step = randomItem(5) + 1;
-  for (let i = 1; i < arr.length; i += 1) {
-    arr[i] = arr[i - 1] + step;
-  }
+    arr.push(randomItem(20));
+    const step = randomItem(5) + 1;
+    for (let i = 1; i < arrLength; i += 1) {
+      arr.push(arr[i - 1] + step);
+    }
+    // случйное число в прогрессии заменяем на "..", а скрытый элемент кладем в массив ответов
+    const randomInd = randomItem(10);
+    hiddenItem = arr[randomInd];
+    arr[randomInd] = '..';
+    answers.push(String(hiddenItem));
 
-  // случйное число в прогрессии заменяем на "..", а скрытый элемент кладем в массив ответов
-  const randomInd = randomItem(10);
-  hiddenItem = arr[randomInd];
-  arr[randomInd] = '..';
-  answers.push(String(hiddenItem));
+    return arr.join(' ');
+  };
 
-  return arr.join(' ');
+  // массив вопросов
+  const questions = [
+    arrNumPr(),
+    arrNumPr(),
+    arrNumPr()];
+
+  game(questions, answers, 'What number is missing in the progression?');
 };
 
-// массив вопросов
-const questions = getArrayOfSize(3);
-for (let i = 0; i < questions.length; i += 1) {
-  questions[i] = arrNumPr();
-}
-
-export { questions, answers };
+export default progressionGame;

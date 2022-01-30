@@ -5,6 +5,13 @@
 3. Наибольший общий делитель
 4. Арифметическая прогрессия
 5. Простое ли число?
+
+Для установки и запуска проекта необходимо:
+1. Склонировать репозиторий командой git clone.
+2. Перейти в корневой католог и выполнить команду make install для установки зависимостей.
+3. Выполнить npm link для установки пакета в систему.
+4. Для запуска игры в консоли ввести название игры.
+
 ###### Hexlet tests and linter status:
 [![Actions Status](https://github.com/natakhrom/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/natakhrom/frontend-project-lvl1/actions)
 ###### CodeClimate status:
@@ -14,16 +21,16 @@
 
 
 ### Аскинема с примером установки пакета и игрой brain-even
-https://asciinema.org/a/B4NxtQs1FH7mkC2mKhiVLPxc8
+[![asciicast](https://asciinema.org/a/B4NxtQs1FH7mkC2mKhiVLPxc8.svg)](https://asciinema.org/a/B4NxtQs1FH7mkC2mKhiVLPxc8)
 
 ### Аскинема с игрой brain-calc
-https://asciinema.org/a/xljuDnsM4YIcbS1tHRvKPQROS
+[![asciicast](https://asciinema.org/a/xljuDnsM4YIcbS1tHRvKPQROS.svg)](https://asciinema.org/a/xljuDnsM4YIcbS1tHRvKPQROS)
 
 ### Аскинема с игрой brain-gcd
-https://asciinema.org/a/csbyk7oizYHHR8eVIc0crUOY0
+[![asciicast](https://asciinema.org/a/csbyk7oizYHHR8eVIc0crUOY0.svg)](https://asciinema.org/a/csbyk7oizYHHR8eVIc0crUOY0)
 
 ### Аскинема с игрой brain-progression
-https://asciinema.org/a/LdtC1Ehizz8CSpOllMOcxKNl5
+[![asciicast](https://asciinema.org/a/LdtC1Ehizz8CSpOllMOcxKNl5.svg)](https://asciinema.org/a/LdtC1Ehizz8CSpOllMOcxKNl5)
 
 ### Аскинема с игрой brain-prime
-https://asciinema.org/a/b5RpN4vCx4HKdK0DzKfsIPgqU
+[![asciicast](https://asciinema.org/a/b5RpN4vCx4HKdK0DzKfsIPgqU.svg)](https://asciinema.org/a/b5RpN4vCx4HKdK0DzKfsIPgqU)

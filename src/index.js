@@ -1,7 +1,15 @@
 import readlineSync from 'readline-sync';
 
 // игра
-function game(questions, answers, name) {
+function game(questions, answers, rules) {
+  console.log('Welcome to the Brain Games!');
+
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+
+  console.log(rules);
+
+  // задаем вопрос
   for (let i = 0; i < questions.length; i += 1) {
     console.log(`Question: ${questions[i]}`);
 
@@ -14,23 +22,15 @@ function game(questions, answers, name) {
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answers[i]}'.`);
 
-      console.log(`Let's try again, ${name}!`);
+      console.log(`Let's try again, ${userName}!`);
 
       return false;
     }
   }
-  return true;
+  return console.log(`Congratulations, ${userName}!`);
 }
 
 // случайное число
 const randomItem = (n) => Math.floor(Math.random() * n);
 
-// функция получения массива опредленной длины
-const getArrayOfSize = (length) => {
-  const array = [];
-  array.length = length;
-
-  return array;
-};
-
-export { game, getArrayOfSize, randomItem };
+export { game, randomItem };
