@@ -1,23 +1,26 @@
-import { game, randomItem } from '../index.js';
+import { startGame, randomItem } from '../index.js';
 
-const evenGames = () => {
-  // массив случайных цифр
-  const questions = [
-    randomItem(100),
-    randomItem(100),
-    randomItem(100)];
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  // массив ответов
-  const answers = (array) => {
-    const arr = [];
-    for (let i = 0; i < array.length; i += 1) {
-      const correctAnswer = array[i] % 2 === 0 ? 'yes' : 'no';
-      arr.push(correctAnswer);
-    }
-    return arr;
-  };
+// функция определения чётности числа
+function numberIsEven(number) {
+  return number % 2 === 0 ? 'yes' : 'no';
+}
 
-  game(questions, answers(questions), 'Answer "yes" if the number is even, otherwise answer "no".');
+// функция игры чётное ли число
+const playEvenGame = () => {
+  const questions = [];
+  const answers = [];
+  const lengthOfExamples = 3;
+
+  for (let i = 0; i < lengthOfExamples; i += 1) {
+    const num = randomItem(100);
+
+    questions[i] = num;
+    answers[i] = numberIsEven(num);
+  }
+
+  startGame(questions, answers, gameDescription);
 };
 
-export default evenGames;
+export default playEvenGame;

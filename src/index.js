@@ -1,13 +1,13 @@
 import readlineSync from 'readline-sync';
 
 // игра
-function game(questions, answers, rules) {
+function startGame(questions, answers, gameDescription) {
   console.log('Welcome to the Brain Games!');
 
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
-  console.log(rules);
+  console.log(gameDescription);
 
   // задаем вопрос
   for (let i = 0; i < questions.length; i += 1) {
@@ -34,4 +34,4 @@ function game(questions, answers, rules) {
 // случайное число
 const randomItem = (n) => Math.floor(Math.random() * n);
 
-export { game, randomItem };
+export { startGame, randomItem };

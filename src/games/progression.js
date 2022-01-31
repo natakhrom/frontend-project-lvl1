@@ -1,37 +1,38 @@
-import { game, randomItem } from '../index.js';
+import { startGame, randomItem } from '../index.js';
 
-const progressionGame = () => {
-  // скрытый элемент массива арифметической прогрессии
-  let hiddenItem;
-  // массив ответов, куда будем класть скрытые элементы
-  const answers = [];
+const gameDescription = 'What number is missing in the progression?';
 
-  // массив арифметической прогрессии
-  const arrNumPr = () => {
-    const arr = [];
-    const arrLength = 10;
+// массив арфиметической прогрессии
+const getProgressionArray = () => {
+  const arr = [];
+  const step = randomItem(5) + 1;
+  const arrLength = 10;
 
-    arr.push(randomItem(20));
-    const step = randomItem(5) + 1;
-    for (let i = 1; i < arrLength; i += 1) {
-      arr.push(arr[i - 1] + step);
-    }
-    // случйное число в прогрессии заменяем на "..", а скрытый элемент кладем в массив ответов
-    const randomInd = randomItem(10);
-    hiddenItem = arr[randomInd];
-    arr[randomInd] = '..';
-    answers.push(String(hiddenItem));
+  arr[0] = randomItem(20);
+  for (let i = 1; i < arrLength; i += 1) {
+    arr[i] = arr[i - 1] + step;
+  }
 
-    return arr.join(' ');
-  };
-
-  // массив вопросов
-  const questions = [
-    arrNumPr(),
-    arrNumPr(),
-    arrNumPr()];
-
-  game(questions, answers, 'What number is missing in the progression?');
+  return arr;
 };
 
-export default progressionGame;
+// функция игры арифметичской прогрессии
+const playProgressionGame = () => {
+  const questions = [];
+  const answers = [];
+  const lengthOfExamples = 3;
+
+  for (let i = 0; i < lengthOfExamples; i += 1) {
+    const arrElement = getProgressionArray();
+    const randomInd = randomItem(10);
+    const temp = arrElement[randomInd];
+
+    arrElement[randomInd] = '..';
+    answers[i] = `${temp}`;
+    questions[i] = arrElement.join(' ');
+  }
+
+  startGame(questions, answers, gameDescription);
+};
+
+export default playProgressionGame;

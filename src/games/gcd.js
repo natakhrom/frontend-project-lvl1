@@ -1,36 +1,30 @@
-import { game, randomItem } from '../index.js';
+import { startGame, randomItem } from '../index.js';
 
-const gcdGame = () => {
-  // массив вопросов
-  const questions = [
-    `${randomItem(100)} ${randomItem(100)}`,
-    `${randomItem(100)} ${randomItem(100)}`,
-    `${randomItem(100)} ${randomItem(100)}`];
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-  // функция нахождения наибольшего делителя двух чисел
-  const greaterCommonDivisor = (a, b) => {
-    if (b) {
-      return greaterCommonDivisor(b, a % b);
-    }
-    return Math.abs(a);
-  };
-
-  // массив ответов
-  const answers = (array) => {
-    const arrAns = [];
-
-    for (let i = 0; i < array.length; i += 1) {
-      // преобразование элемента в массиве в массив
-      const items = array[i].split(' ');
-      const first = Number(items[0]);
-      const last = Number(items[1]);
-      arrAns.push(String(greaterCommonDivisor(first, last)));
-    }
-
-    return arrAns;
-  };
-
-  game(questions, answers(questions), 'Find the greatest common divisor of given numbers.');
+// функция нахождения наибольшего делителя двух чисел
+const greaterCommonDivisor = (a, b) => {
+  if (b) {
+    return greaterCommonDivisor(b, a % b);
+  }
+  return Math.abs(a);
 };
 
-export default gcdGame;
+// функция игры наибольший общий делитель
+const playGcdGame = () => {
+  const questions = [];
+  const answers = [];
+  const lengthOfExamples = 3;
+
+  for (let i = 0; i < lengthOfExamples; i += 1) {
+    const num1 = randomItem(100);
+    const num2 = randomItem(100);
+
+    questions[i] = `${num1} ${num2}`;
+    answers[i] = `${greaterCommonDivisor(num1, num2)}`;
+  }
+
+  startGame(questions, answers, gameDescription);
+};
+
+export default playGcdGame;

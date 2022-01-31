@@ -1,38 +1,39 @@
-import { game, randomItem } from '../index.js';
+import { startGame, randomItem } from '../index.js';
 
-const calcGame = () => {
+const gameDescription = 'What is the result of the expression?';
+
+// калькулятор
+function calc(a, b, operator) {
+  let result;
+
+  switch (operator) {
+    case '+': result = a + b;
+      break;
+    case '-': result = a - b;
+      break;
+    default: result = a * b;
+  }
+
+  return result;
+}
+
+// функция игры калькулятор
+const playCalcGame = () => {
   const operators = ['+', '-', '*'];
+  const answers = [];
+  const questions = [];
+  const lengthOfExamples = 3;
 
-  // массив математических примеров
-  const questions = [
-    `${randomItem(50)} ${operators[randomItem(3)]} ${randomItem(50)}`,
-    `${randomItem(50)} ${operators[randomItem(3)]} ${randomItem(50)}`,
-    `${randomItem(50)} ${operators[randomItem(3)]} ${randomItem(50)}`];
+  for (let i = 0; i < lengthOfExamples; i += 1) {
+    const num1 = randomItem(50);
+    const num2 = randomItem(50);
+    const operator = operators[randomItem(3)];
 
-  // массив ответов
-  const answers = (array) => {
-    const arrAnswers = [];
-    let res;
+    questions[i] = `${num1} ${operator} ${num2}`;
+    answers[i] = `${calc(num1, num2, operator)}`;
+  }
 
-    for (let i = 0; i < array.length; i += 1) {
-      // преобразование элемента в массиве в массив
-      const items = array[i].split(' ');
-      const first = Number(items[0]);
-      const last = Number(items[items.length - 1]);
-      switch (items[1]) {
-        case '+': res = first + last;
-          break;
-        case '-': res = first - last;
-          break;
-        default: res = first * last;
-      }
-      arrAnswers.push(String(res));
-    }
-
-    return arrAnswers;
-  };
-
-  game(questions, answers(questions), 'What is the result of the expression?');
+  startGame(questions, answers, gameDescription);
 };
 
-export default calcGame;
+export default playCalcGame;

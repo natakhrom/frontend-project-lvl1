@@ -1,39 +1,31 @@
-import { game, randomItem } from '../index.js';
+import { startGame, randomItem } from '../index.js';
 
-const primeGame = () => {
-  //  массив вопросов
-  const questions = [
-    // кладем случайное число от 2 до 51
-    `${randomItem(50) + 2}`,
-    `${randomItem(50) + 2}`,
-    `${randomItem(50) + 2}`];
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-  // функция нахождения простого числа
-  const isPrime = (n) => {
-    for (let i = 2; i < n; i += 1) {
-      if (n % i === 0) {
-        return false;
-      }
+// функция нахождения простого числа
+const isPrime = (n) => {
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      return 'no';
     }
-    return true;
-  };
-
-  // массив ответов
-  const answers = (array) => {
-    const arrAnswers = [];
-
-    for (let i = 0; i < array.length; i += 1) {
-      if (isPrime(array[i])) {
-        arrAnswers.push('yes');
-      } else {
-        arrAnswers.push('no');
-      }
-    }
-
-    return arrAnswers;
-  };
-
-  game(questions, answers(questions), 'Answer "yes" if given number is prime. Otherwise answer "no".');
+  }
+  return 'yes';
 };
 
-export default primeGame;
+// функция игры простое число
+const playPrimeGame = () => {
+  const questions = [];
+  const answers = [];
+  const lengthOfExamples = 3;
+
+  for (let i = 0; i < lengthOfExamples; i += 1) {
+    const num = randomItem(50) + 2;
+
+    questions[i] = num;
+    answers[i] = isPrime(num);
+  }
+
+  startGame(questions, answers, gameDescription);
+};
+
+export default playPrimeGame;
