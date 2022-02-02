@@ -1,26 +1,34 @@
-import { startGame, randomItem } from '../index.js';
+import { startGame, randomItem, questionCount } from '../index.js';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 // функция определения чётности числа
-function numberIsEven(number) {
+function isEven(number) {
   return number % 2 === 0 ? 'yes' : 'no';
 }
 
+// раунд игры
+const getQuestionAndAnswer = () => {
+  const round = [];
+  const num = randomItem(100);
+
+  const question = num;
+  round.push(question);
+  const answer = isEven(num);
+  round.push(answer);
+
+  return round;
+};
+
 // функция игры чётное ли число
 const playEvenGame = () => {
-  const questions = [];
-  const answers = [];
-  const lengthOfExamples = 3;
+  const setRounds = [];
 
-  for (let i = 0; i < lengthOfExamples; i += 1) {
-    const num = randomItem(100);
-
-    questions[i] = num;
-    answers[i] = numberIsEven(num);
+  for (let i = 0; i < questionCount; i += 1) {
+    setRounds.push(getQuestionAndAnswer());
   }
 
-  startGame(questions, answers, gameDescription);
+  startGame(setRounds, gameDescription);
 };
 
 export default playEvenGame;

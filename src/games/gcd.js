@@ -1,4 +1,4 @@
-import { startGame, randomItem } from '../index.js';
+import { startGame, randomItem, questionCount } from '../index.js';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
@@ -10,21 +10,29 @@ const greaterCommonDivisor = (a, b) => {
   return Math.abs(a);
 };
 
+// раунд игры
+const getQuestionAndAnswer = () => {
+  const round = [];
+  const num1 = randomItem(50);
+  const num2 = randomItem(50);
+
+  const question = `${num1} ${num2}`;
+  round.push(question);
+  const answer = `${greaterCommonDivisor(num1, num2)}`;
+  round.push(answer);
+
+  return round;
+};
+
 // функция игры наибольший общий делитель
 const playGcdGame = () => {
-  const questions = [];
-  const answers = [];
-  const lengthOfExamples = 3;
+  const setRounds = [];
 
-  for (let i = 0; i < lengthOfExamples; i += 1) {
-    const num1 = randomItem(100);
-    const num2 = randomItem(100);
-
-    questions[i] = `${num1} ${num2}`;
-    answers[i] = `${greaterCommonDivisor(num1, num2)}`;
+  for (let i = 0; i < questionCount; i += 1) {
+    setRounds.push(getQuestionAndAnswer());
   }
 
-  startGame(questions, answers, gameDescription);
+  startGame(setRounds, gameDescription);
 };
 
 export default playGcdGame;

@@ -1,4 +1,4 @@
-import { startGame, randomItem } from '../index.js';
+import { startGame, randomItem, questionCount } from '../index.js';
 
 const gameDescription = 'What number is missing in the progression?';
 
@@ -16,23 +16,31 @@ const getProgressionArray = () => {
   return arr;
 };
 
+// раунд игры
+const getQuestionAndAnswer = () => {
+  const round = [];
+  const arrElement = getProgressionArray();
+  const randomInd = randomItem(10);
+  const temp = arrElement[randomInd];
+  arrElement[randomInd] = '..';
+
+  const question = arrElement.join(' ');
+  round.push(question);
+  const answer = `${temp}`;
+  round.push(answer);
+
+  return round;
+};
+
 // функция игры арифметичской прогрессии
 const playProgressionGame = () => {
-  const questions = [];
-  const answers = [];
-  const lengthOfExamples = 3;
+  const setRounds = [];
 
-  for (let i = 0; i < lengthOfExamples; i += 1) {
-    const arrElement = getProgressionArray();
-    const randomInd = randomItem(10);
-    const temp = arrElement[randomInd];
-
-    arrElement[randomInd] = '..';
-    answers[i] = `${temp}`;
-    questions[i] = arrElement.join(' ');
+  for (let i = 0; i < questionCount; i += 1) {
+    setRounds.push(getQuestionAndAnswer());
   }
 
-  startGame(questions, answers, gameDescription);
+  startGame(setRounds, gameDescription);
 };
 
 export default playProgressionGame;
