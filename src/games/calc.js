@@ -1,4 +1,4 @@
-import { startGame, randomItem, questionCount } from '../index.js';
+import { startGame, randomItem, questionsCount } from '../index.js';
 
 const gameDescription = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
@@ -32,7 +32,7 @@ const getQuestionAndAnswer = () => {
 const playCalcGame = () => {
   const setRounds = [];
 
-  for (let i = 0; i < questionCount; i += 1) {
+  for (let i = 0; i < questionsCount; i += 1) {
     setRounds.push(getQuestionAndAnswer());
   }
 

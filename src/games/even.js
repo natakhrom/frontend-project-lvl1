@@ -1,4 +1,4 @@
-import { startGame, randomItem, questionCount } from '../index.js';
+import { startGame, randomItem, questionsCount } from '../index.js';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -24,7 +24,7 @@ const getQuestionAndAnswer = () => {
 const playEvenGame = () => {
   const setRounds = [];
 
-  for (let i = 0; i < questionCount; i += 1) {
+  for (let i = 0; i < questionsCount; i += 1) {
     setRounds.push(getQuestionAndAnswer());
   }
 

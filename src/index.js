@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 // случайное число
 const randomItem = (n) => Math.floor(Math.random() * n);
 // количество вопросов для каждой игры
-const questionCount = 3;
+const questionsCount = 3;
 
 // игра
 function startGame(roundsGame, gameDescription) {
@@ -36,4 +36,4 @@ function startGame(roundsGame, gameDescription) {
   console.log(`Congratulations, ${userName}!`);
 }
 
-export { startGame, randomItem, questionCount };
+export { startGame, randomItem, questionsCount };
