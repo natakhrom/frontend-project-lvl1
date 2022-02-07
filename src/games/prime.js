@@ -1,4 +1,4 @@
-import { startGame, questionsCount } from '../index.js';
+import { setGame, startGame } from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -29,13 +29,9 @@ const getQuestionAndAnswer = () => {
 
 // функция игры простое число
 const playPrimeGame = () => {
-  const setRounds = [];
+  const game = setGame(getQuestionAndAnswer);
 
-  for (let i = 0; i < questionsCount; i += 1) {
-    setRounds.push(getQuestionAndAnswer());
-  }
-
-  startGame(setRounds, gameDescription);
+  startGame(gameDescription, game);
 };
 
 export default playPrimeGame;

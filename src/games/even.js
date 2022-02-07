@@ -1,4 +1,4 @@
-import { startGame, questionsCount } from '../index.js';
+import { setGame, startGame } from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -18,13 +18,9 @@ const getQuestionAndAnswer = () => {
 
 // функция игры чётное ли число
 const playEvenGame = () => {
-  const setRounds = [];
+  const game = setGame(getQuestionAndAnswer);
 
-  for (let i = 0; i < questionsCount; i += 1) {
-    setRounds.push(getQuestionAndAnswer());
-  }
-
-  startGame(setRounds, gameDescription);
+  startGame(gameDescription, game);
 };
 
 export default playEvenGame;

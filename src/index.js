@@ -1,10 +1,7 @@
 import readlineSync from 'readline-sync';
 
-// количество вопросов для каждой игры
-const questionsCount = 3;
-
 // игра
-function startGame(roundsGame, gameDescription) {
+function startGame(gameDescription, roundsGame) {
   console.log('Welcome to the Brain Games!');
 
   const userName = readlineSync.question('May I have your name? ');
@@ -34,4 +31,17 @@ function startGame(roundsGame, gameDescription) {
   console.log(`Congratulations, ${userName}!`);
 }
 
-export { startGame, questionsCount };
+// количество вопросов для каждой игры
+const questionsCount = 3;
+
+const setGame = (getRound) => {
+  const rounds = [];
+
+  for (let i = 0; i < questionsCount; i += 1) {
+    rounds.push(getRound());
+  }
+
+  return rounds;
+};
+
+export { setGame, startGame };
