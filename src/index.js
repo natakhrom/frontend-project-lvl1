@@ -1,7 +1,5 @@
 import readlineSync from 'readline-sync';
 
-// случайное число
-const randomItem = (n) => Math.floor(Math.random() * n);
 // количество вопросов для каждой игры
 const questionsCount = 3;
 
@@ -16,17 +14,17 @@ function startGame(roundsGame, gameDescription) {
 
   // задаем вопрос
   for (let i = 0; i < roundsGame.length; i += 1) {
-    console.log(`Question: ${roundsGame[i][0]}`);
+    const [question, answer] = roundsGame[i];
+    console.log(`Question: ${question}`);
 
     // получаем ответ от пользователя
     const userAnswer = readlineSync.question('Your answer: ');
 
     // сравниваем
-    if (roundsGame[i][1] === userAnswer) {
+    if (answer === userAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${roundsGame[i][1]}'.`);
-
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${userName}!`);
 
       return;
@@ -36,4 +34,4 @@ function startGame(roundsGame, gameDescription) {
   console.log(`Congratulations, ${userName}!`);
 }
 
-export { startGame, randomItem, questionsCount };
+export { startGame, questionsCount };

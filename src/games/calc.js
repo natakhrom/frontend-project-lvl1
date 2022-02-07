@@ -1,4 +1,5 @@
-import { startGame, randomItem, questionsCount } from '../index.js';
+import { startGame, questionsCount } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const gameDescription = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
@@ -15,17 +16,14 @@ function calc(a, b, operator) {
 
 // раунд игры
 const getQuestionAndAnswer = () => {
-  const round = [];
-  const num1 = randomItem(50);
-  const num2 = randomItem(50);
-  const operator = operators[randomItem(3)];
+  const num1 = getRandomNumber(1, 50);
+  const num2 = getRandomNumber(1, 50);
+  const operator = operators[getRandomNumber(0, operators.length - 1)];
 
   const question = `${num1} ${operator} ${num2}`;
-  round.push(question);
   const answer = String(calc(num1, num2, operator));
-  round.push(answer);
 
-  return round;
+  return [question, answer];
 };
 
 // функция игры калькулятор

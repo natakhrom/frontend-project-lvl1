@@ -1,28 +1,30 @@
-import { startGame, randomItem, questionsCount } from '../index.js';
+import { startGame, questionsCount } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 // функция нахождения простого числа
 const isPrime = (n) => {
-  for (let i = 2; i < n; i += 1) {
+  if (n < 2) {
+    return false;
+  }
+
+  for (let i = 2; i <= n / 2; i += 1) {
     if (n % i === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
 // раунд игры
 const getQuestionAndAnswer = () => {
-  const round = [];
-  const num = randomItem(50) + 2;
+  const number = getRandomNumber(1, 50);
 
-  const question = num;
-  round.push(question);
-  const answer = isPrime(num);
-  round.push(answer);
+  const question = number;
+  const answer = isPrime(number) ? 'yes' : 'no';
 
-  return round;
+  return [question, answer];
 };
 
 // функция игры простое число

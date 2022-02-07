@@ -1,14 +1,14 @@
-import { startGame, randomItem, questionsCount } from '../index.js';
+import { startGame, questionsCount } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const gameDescription = 'What number is missing in the progression?';
 
 // массив арфиметической прогрессии
-const getProgressionArray = () => {
+const getProgressionArray = (step, firstElement) => {
   const arr = [];
-  const step = randomItem(5) + 1;
   const arrLength = 10;
 
-  arr[0] = randomItem(20);
+  arr[0] = firstElement;
   for (let i = 1; i < arrLength; i += 1) {
     arr[i] = arr[i - 1] + step;
   }
@@ -18,18 +18,18 @@ const getProgressionArray = () => {
 
 // раунд игры
 const getQuestionAndAnswer = () => {
-  const round = [];
-  const arrElement = getProgressionArray();
-  const randomInd = randomItem(10);
-  const temp = arrElement[randomInd];
-  arrElement[randomInd] = '..';
+  const step = getRandomNumber(1, 5);
+  const firstElement = getRandomNumber(1, 20);
+  const arrayElement = getProgressionArray(step, firstElement);
 
-  const question = arrElement.join(' ');
-  round.push(question);
-  const answer = `${temp}`;
-  round.push(answer);
+  const randomIndex = getRandomNumber(0, 9);
+  const temp = arrayElement[randomIndex];
+  arrayElement[randomIndex] = '..';
 
-  return round;
+  const question = arrayElement.join(' ');
+  const answer = String(temp);
+
+  return [question, answer];
 };
 
 // функция игры арифметичской прогрессии
